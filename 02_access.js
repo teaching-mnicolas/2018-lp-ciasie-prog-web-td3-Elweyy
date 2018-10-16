@@ -13,41 +13,34 @@ describe ("Properties access", function() {
 
   it ("object has access to its own property", function() {
     expect(warrior.damage).toBeDefined();
-<<<<<<< HEAD
     expect(warrior.damage).toEqual(42);
-=======
-    expect(warrior.damage).toEqual(__);
->>>>>>> 2dda0e400785d5f0753daffa0df48904bd768564
+
   });
 
   it ("object has access to property of its prototype", function() {
     expect(warrior.hp).toBeDefined();
-<<<<<<< HEAD
     expect(warrior.hp).toEqual(100);
-=======
-    expect(warrior.hp).toEqual(__);
->>>>>>> 2dda0e400785d5f0753daffa0df48904bd768564
   });
 
   it ("object's property mask prototype's property", function() {
     expect(warrior.armor).toBeDefined();
-    expect(warrior.armor).toEqual(__);
+    expect(warrior.armor).toEqual(50);
   });
 
   it ("property not found is undefined", function() {
-    expect(warrior.mp).toBe__();    // defined or undefined
+    expect(warrior.mp).toBeUndefined();    // defined or undefined
   });
 
   it ("Prototype modification is propagated to objects", function() {
     expect(warrior.mp).toBeUndefined();
-    __.__.mp = 50;                 // add a property to Character prototype
+    Character.prototype.mp = 50;                 // add a property to Character prototype
     expect(warrior.mp).toBeDefined();
-    expect(warrior.mp).toEqual(__);
+    expect(warrior.mp).toEqual(50);
   });
 
   it ("Deleting a property on an object can reveal prototype's property", function() {
-    expect(warrior.armor).toEqual(__);
+    expect(warrior.armor).toEqual(50);
     delete warrior.armor;
-    expect(warrior.armor).toEqual(__);
+    expect(warrior.armor).toEqual(10);
   });
 });
